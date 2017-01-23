@@ -1,141 +1,108 @@
+$(document).ready(function() {
 
-// Global Variables
+// API key 
+var appID = "&APPID=1af00c9ec196ff14716375cebe917a01";
+var city;
+var state;
+var fahrenheit = "&units=imperial";
+var temp;
 
-var longitude, latitude;
+// using a geo-location API to get city and state info of current user
+$.getJSON('http://ip-api.com/json/?callback=?', function(data) {
+  city = data.city;
+  state = data.regionName;
+  getWeather(city, state);
+});
 
+// using weather API and outputting results into our HTML
+function getWeather(city, state) {
+  var api = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + state + "" + fahrenheit + "" + appID;
 
-//Skycons
+  $.ajax({
+    url: api,
+    dataType: 'json',
+    success: function(data) {
+      console.log(JSON.stringify(data));
+      // get condition of weather
+      var weatherOut = data.weather[0].main;
+      // get weather icon
+      var weatherDayNight = data.weather[0].icon;
+      var weatherID = data.weather[0].id;
+      temp = {
+        F: Math.round((data.main.temp)) + "° F",
+        C: Math.round((data.main.temp - 32) * 5 / 9) + "° C"
+      };
+      $('#location').text(city + ", " +  state);
+      $('#temperature').html(temp['F']);
+      $('.weather').text(weatherOut);
 
-var skycons = new Skycons({"color": "#F2E9E4"});
-skycons.add("animated-icon", Skycons.CLEAR_DAY);
-skycons.play();
+      var pickURL = weatherCond[data.weather[0].icon].cond;
+      $('#weather-icon').css('background-image', 'url("' + pickURL + '")');
 
-
-//Function to update weather information on page
-
-function updateWeather(json) {
-  longitude = json.coord.lon;
-  latitude = json.coord.lat;
-
-  //AJAX request
-
-  //Update Weather parameters and location
-
-  $("#weather-condition").html(json.weather[0].description);
-  var temp = [(json.main.temp - 273.15).toFixed(0) + "°C", (1.8 * (json.main.temp - 273.15) + 32).toFixed(0) + "F"];
-  $(".temp-celsius").html(temp[0]);
-  $(".temp-fahrenheit").html(temp[1]);
-  $("#temperature").click(function () {
-    $(".temp-celsius").toggle();
-    $(".temp-fahrenheit").toggle();
-  });
-  $("#location").html("for " + json.name);
-
-
-
-  //Update Weather animation based on the returned weather description
-
-  var weather = json.weather[0].description;
-  
-  if(weather.indexOf("rain") >= 0) {
-    skycons.set("animated-icon", Skycons.RAIN);
-  }
-
-  else if (weather.indexOf("sunny") >= 0) {
-    skycons.set("animated-icon", Skycons.CLEAR_DAY);
-  }
-
-  else if (weather.indexOf("clear") >= 0) {
-    if (timeHour >= 7 && timeHour < 20) {
-      skycons.set("animated-icon", Skycons.CLEAR_DAY);
     }
-
-    else {
-      skycons.set("animated-icon", Skycons.CLEAR_NIGHT);
-    }   
-  }
-
-  else if (weather.indexOf("cloud") >= 0) {
-    if (timeHour >= 7 && timeHour < 20) {
-      skycons.set("animated-icon", Skycons.PARTLY_CLOUDY_DAY);
-    }
-
-    else {
-      skycons.set("animated-icon", Skycons.PARTLY_CLOUDY_NIGHT);
-    } 
-  }
-
-  else if (weather.indexOf("thunderstorm") >= 0) {
-    skycons.set("animated-icon", Skycons.SLEET);
-  }
-
-  else if (weather.indexOf("snow") >= 0) {
-    skycons.set("animated-icon", Skycons.SNOW);
-  }
-}
-
-
-
-
-// Get Geolocation data (returns latitude and longitude)
-if (navigator.geolocation) {
-  window.onload = function () {
-    var currentPosition; 
-
-    function getCurrentPosition (position) {
-      latitude =  currentPosition.coords.latitude;
-      longitude = currentPosition.coords.longitude;
-
-      // AJAX Request
-
-      $.getJSON("http://api.openweathermap.org/data/2.5/weather?/lat=" + latitude + "&lon=" + longitude + 
-        "&appid=1af00c9ec196ff14716375cebe917a01", function(data) {
-          var rawJson = JSON.stringify(data);
-          var json = JSON.parse(rawJson);
-          updateWeather(json); 
-        });
-    }
-
-    navigator.geolocation.getCurrentPosition(getCurrentPosition);
-};
-
-
- // Search for location
-  $("form").on("submit", function(event) {
-    event.preventDefault();
-    var city = $(".find-forecast").val(); //Get value from form input
-    document.getElementById("my-form").reset();
-    
-    //AJAX Request
-
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=1af00c9ec196ff14716375cebe917a01", function (data) {
-      var rawJson = JSON.stringify(data);
-      var json = JSON.parse(rawJson);
-      updateWeather(json); //Update Weather parameters
-    });
   });
 }
 
-//If Geolocation is not supported by the browser, alert the user
+  $('span').on('click', function() {
+    var current = $(this).data('nextTemp');
+    $('span').text(temp[current]);
 
-else { 
-  alert("Geolocation is not supported by your browser, download the latest Chrome or Firefox to use this app");
-}
+    if (current == 'C') {
+      $(this).data('nextTemp', 'F');
+      return;
+    }
+    $(this).data('nextTemp', 'C');
+  });
 
+  var weatherCond = {};
 
+  weatherCond['01d'] = {
+    'cond': "http://wfiles.brothersoft.com/b/blue-sky-with-clear-water_175256-1600x1200.jpg"
+  };
+  weatherCond['01n'] = {
+    'cond': "https://web-assets.domo.com/blog/wp-content/uploads/2012/12/nighttimesky.jpeg"
+  };
+  weatherCond['03d'] = {
+    'cond': "http://icons.wunderground.com/data/wximagenew/1/1photogirl93/29-800.jpg"
+  };
+  weatherCond['03n'] = {
+    'cond': "http://icons.wunderground.com/data/wximagenew/1/1photogirl93/29-800.jpg"
+  };
+  weatherCond['04d'] = {
+    'cond': "http://icons.wunderground.com/data/wximagenew/1/1photogirl93/29-800.jpg"
+  };
+  weatherCond['03n'] = {
+    'cond': "http://icons.wunderground.com/data/wximagenew/1/1photogirl93/29-800.jpg"
+  };
+  weatherCond['09d'] = {
+    'cond': "http://www.pureella.com/wp-content/uploads/2011/04/pleasurefeelingpeoplephotographyarm.jpg"
+  };
+  weatherCond['09n'] = {
+    'cond': "http://alm0na.files.wordpress.com/2012/01/rain_drops_at_night-wide.jpg"
+  };
+  weatherCond['10d'] = {
+    'cond': "http://www.pureella.com/wp-content/uploads/2011/04/pleasurefeelingpeoplephotographyarm.jpg"
+  };
+  weatherCond['10n'] = {
+    'cond': "http://alm0na.files.wordpress.com/2012/01/rain_drops_at_night-wide.jpg"
+  };
+  weatherCond['11d'] = {
+    'cond': "http://www.prevention.com/sites/prevention.com/files/images/news/featured_images/thunderstorm-628x363-TS-135165621_0.jpg"
+  };
+  weatherCond['11n'] = {
+    'cond': "http://s3.amazonaws.com/rapgenius/1367403834_night-thunder-storm-lightning.jpg"
+  };
+  weatherCond['13d'] = {
+    'cond': "https://img.buzzfeed.com/buzzfeed-static/static/2014-01/enhanced/webdr07/24/6/anigif_enhanced-buzz-2717-1390562645-0.gif"
+  };
+  weatherCond['13n'] = {
+    'cond': "https://img.buzzfeed.com/buzzfeed-static/static/2014-01/enhanced/webdr07/24/6/anigif_enhanced-buzz-2717-1390562645-0.gif"
+  };
+  weatherCond['50d'] = {
+    'cond': "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTNQzaAiOTFK70eqtdoaKTdMR63raFj-By0SklV6ixQPyTqt6_I"
+  };
+  weatherCond['50n'] = {
+    'cond': "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTNQzaAiOTFK70eqtdoaKTdMR63raFj-By0SklV6ixQPyTqt6_I"
+  };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
