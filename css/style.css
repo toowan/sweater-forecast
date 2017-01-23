@@ -1,0 +1,124 @@
+@import 
+url(https://fonts.googleapis.com/css?family=Josefin+Slab|Megrim);
+
+* {
+  margin: 0;
+}
+
+html, body {
+  background-color: #22223B;
+  font-family: serif;
+  font-size: 16px;
+  height: 100%;
+}
+
+p {
+  font-family: 'Josefin Slab',serif;
+  text-align: center;
+  color: #4A4E69;
+}
+
+
+h1 {
+  font-family: 'Megrim', cursive;
+  font-size: 5em;
+  color: #F2E9E4;
+  text-align: center;
+  margin-top: 50px;
+}
+
+
+h2 {
+  font-family: 'Josefin Slab',serif;
+  text-align: center;
+  color: #C9ADA7;
+  font-weight: bold;
+}
+
+img {
+  color: white;
+}
+
+#location {
+  font-size: 2em;
+  margin-bottom: 150px;
+}
+
+#animated-icon {
+  color: #F2E9E4;
+}
+
+#temperature {
+  font-size: 3em;
+  padding-top: 50px;
+  text-align: center;
+  color: #F2E9E4;
+  margin-bottom: 50px;
+}
+
+#my-form {
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Josefin Slab',serif;
+}
+
+.find-forecast {
+  width: 250px;
+  background-color: #4A4E69;
+  border: none;
+  height: 30px;
+  padding-left: 5px;
+  outline: none;
+  color: #F2E9E4;
+}
+
+.btn-search {
+  background-color: #4A4E69;
+  color: #C9ADA7;
+  border: none;
+  width: 75px;
+  height: 30px;
+}
+
+
+.container {
+
+  width: 50%;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: -30px;
+  padding-top: 20px;
+  min-height: 100%;
+}
+
+.container:after {
+  content: "";
+  display: block;
+}
+
+.main-content {
+  min-height: 100%;
+  margin-bottom: 50px;
+}
+
+.week-forecast {
+  background-color: #F2E9E4;
+  margin: auto;
+  margin-top: 100px;
+  padding: 50px;
+  padding-top: 20px;
+  width: 50%;
+  border-radius: 20px; 
+}
+
+.site-footer, .container:after {
+  height: 30px;
+}
+
+footer {
+  padding-top: 10px;
+}
+
+a {
+  color: #F2E9E4;
+}
