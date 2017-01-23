@@ -33,10 +33,15 @@ h2 {
   text-align: center;
   color: #C9ADA7;
   font-weight: bold;
+  font-size: 1em;
 }
 
-img {
-  color: white;
+h3 {
+  font-family: 'Josefin Slab',serif;
+  text-align: center;
+  color: #C9ADA7;
+  font-weight: bold;
+  font-size: 1.5em;
 }
 
 #location {
@@ -44,7 +49,7 @@ img {
   margin-bottom: 150px;
 }
 
-#animated-icon {
+.weather-icon {
   color: #F2E9E4;
 }
 
