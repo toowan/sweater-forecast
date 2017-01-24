@@ -7,7 +7,7 @@ url(https://fonts.googleapis.com/css?family=Josefin+Slab|Megrim);
 
 html, body {
   background-color: #22223B;
-  font-family: serif;
+  font-family: 'Josefin Slab', serif;
   font-size: 16px;
   height: 100%;
 }
@@ -27,13 +27,18 @@ h1 {
   margin-top: 50px;
 }
 
+.wi-stars {
+  color: #4A4E69;
+  font-size: 1.2em;
+}
+
 
 h2 {
   font-family: 'Josefin Slab',serif;
   text-align: center;
   color: #C9ADA7;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 2em;
 }
 
 h3 {
@@ -44,14 +49,11 @@ h3 {
   font-size: 1.5em;
 }
 
-.wi {
-  font-size: 1em;
-}
 
 
-#location {
-  font-size: 2em;
-  margin-bottom: 150px;
+.weather-city p {
+  font-size: 3em;
+  color: #C9ADA7;
 }
 
 .weather-icon {
@@ -59,11 +61,94 @@ h3 {
 }
 
 #temperature {
-  font-size: 3em;
-  padding-top: 50px;
+  font-size: 8em;
   text-align: center;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+#temperature p {
+  color: #C9ADA7;
+}
+
+#temperature i {
   color: #F2E9E4;
-  margin-bottom: 50px;
+  font-size: 1em;
+}
+
+.toggle-switch {
+  text-align: center;
+  margin-top: -100px;
+  margin-bottom: 100px;
+  outline: none;
+}
+
+#celsius, #fahrenheit {
+  display: inline;
+  font-size: 1.5em;
+  color: #C9ADA7;
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+  margin: auto;
+  margin-top: 10px;
+  position: relative;
+  display: inline-block;
+  width: 58px;
+  height: 33px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #4A4E69;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 25px;
+  width: 25px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #C9ADA7;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #4A4E69;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(25px);
+  -ms-transform: translateX(25px);
+  transform: translateX(25px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 #my-form {

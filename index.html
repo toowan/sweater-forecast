@@ -11,20 +11,26 @@
 
 <body>
     <header>
-        <h1>sweater <i class="wi wi-day-rain-wind"></i> forecast</h1>
+        <h1>sweater <i class="wi wi-stars"></i> forecast</h1>
     </header>
 
     <div class="main-content"> 
         <div class="container">
-            <div id="location">
-                <h2>San Francisco, CA</h2>
+        
+            <div id="temperature">
+                <p><i class="wi wi-day-rain-wind"></i>49&degF</p> 
             </div>
-            <div class="weather-icon">
-            </div>  
-             <div id="temperature">
-                <h3>85&deg;F</h2>
+            <div class="toggle-switch"> 
+                <span id="celsius"> C </span>
+                <label class="switch">
+                  <input type="checkbox">
+                  <div class="slider round"></div>
+                </label>
+                <span id="fahrenheit"> F </span>
             </div>
-    
+            <div class="weather-city">
+                <p>San Francisco, CA</p>
+            </div>
             <div id="location-search">
                 <form id="my-form" action="">
                     <input type="search" placeholder="Location or keyword" class="find-forecast">
