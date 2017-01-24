@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="js/javascript.js"></script>
     <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
 </head>
@@ -16,25 +17,28 @@
 
     <div class="main-content"> 
         <div class="container">
-        
+            <div id="weather-icon">
+                <img src="" id="weatherImg" class="center-block">
+                <h3 class="text-center data-item" id="weather-text"></h3>
+            </div>
             <div id="temperature">
-                <p><i class="wi wi-day-rain-wind"></i>49&degF</p> 
+                <p id="temp"></p> 
             </div>
             <div class="toggle-switch"> 
-                <span id="celsius"> C </span>
+                <span id="celsius"> F </span>
                 <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" id="tempMode" value="2">
                   <div class="slider round"></div>
                 </label>
-                <span id="fahrenheit"> F </span>
+                <span id="fahrenheit"> C </span>
             </div>
             <div class="weather-city">
-                <p>San Francisco, CA</p>
+                <p id="city-text"></p>
             </div>
             <div id="location-search">
                 <form id="my-form" action="">
-                    <input type="search" placeholder="Location or keyword" class="find-forecast">
-                    <button class="btn-search">Search</button>
+                    <input type="search" placeholder="Location or keyword" class="find-forecast" id="find-forecast">
+                    <button class="btn-search" id="submit">Search</button>
                 </form>
             </div>
         </div>
