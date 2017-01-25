@@ -96,19 +96,21 @@ $(document).ready(function() {
       $('#icon').addClass('wi-dust');
     } else if (id == 741) {
       $('#icon').addClass('wi-fog');
-    } else if (id == 800) {
+    } else if (id == 800 && id == 951) {
       $('#icon').addClass('wi-day-sunny');
     } else if (id >= 801 && id < 805) {
       $('#icon').addClass('wi-cloudy');
+    } else if (id == 900) {
+      $('#icon').addClass('wi-tornado');
     } else if (id == 906) {
       $('#icon').addClass('wi-hail');
-    } else if (id >= 952 && id <= 956) {
+    } else if (id >= 952 && id <= 956 && id == 905) {
       $('#icon').addClass('wi-windy');
     } else if (id >= 957 && id <= 959) {
       $('#icon').addClass('wi-strong-wind');
-    } else if (id == 960 && id == 961) {
+    } else if (id == 960 && id == 961 && id == 901) {
       $('#icon').addClass('wi-storm-showers');
-    } else if (id == 962) {
+    } else if (id == 902 && id == 962) {
       $('#icon').addClass('wi-hurricane');
     }
   }
