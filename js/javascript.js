@@ -7,6 +7,7 @@ $(document).ready(function() {
   var appID = '1af00c9ec196ff14716375cebe917a01';
   var lat; 
   var lon; 
+  var googleMapsUrl = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Paris&types=geocode&key=AIzaSyC3NdHq48NCNlfEnW5Hm98PvTHybNVxfJc'; 
 
   // autocomplete places
   searchedCity = new google.maps.places.Autocomplete(
