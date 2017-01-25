@@ -65,7 +65,7 @@ $(document).ready(function() {
   }
 
 
-  // If temperature unit toggle switch is activated
+  // Toggle temperature unit switch
   $('#tempMode').change(function(event) {
     if ($(this).is(':checked')) {
       $('.f-deg').addClass('hidden');

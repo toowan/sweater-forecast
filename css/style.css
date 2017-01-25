@@ -277,6 +277,7 @@ a:hover {
 
   h1 {
     font-size: 3em;
+    margin-top: -40px;
   }
 
   h2 {
@@ -288,8 +289,8 @@ a:hover {
     margin-top: 10px;
   }
 
-  #location-search {
-    visibility: hidden;
+  #autocomplete {
+    width: 150px;
   }
 
   .container {
