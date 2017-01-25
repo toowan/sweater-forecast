@@ -80,15 +80,15 @@ $(document).ready(function() {
 
   // Add icon from Erik Flowers based on weather conditions ID
   function weatherIcon(id) {
-    if (id >= 200 && id <= 232) {
+    if (id >= 200 || id <= 232) {
       $('#icon').addClass('wi-thunderstorm');
-    } else if (id >= 300 && id <= 331) {
+    } else if (id >= 300 || id <= 331) {
       $('#icon').addClass('wi-showers');
-    } else if (id >= 500 && id <= 531) {
+    } else if (id >= 500 || id <= 531) {
       $('#icon').addClass('wi-rain');
-    } else if (id >= 600 && id <= 622) {
+    } else if (id >= 600 || id <= 622) {
       $('#icon').addClass('wi-snow');
-    } else if (id == 701 && id == 721) {
+    } else if (id == 701 || id == 721) {
       $('#icon').addClass('wi-day-haze');
     } else if (id == 711) {
       $('#icon').addClass('wi-smoke');
@@ -96,21 +96,21 @@ $(document).ready(function() {
       $('#icon').addClass('wi-dust');
     } else if (id == 741) {
       $('#icon').addClass('wi-fog');
-    } else if (id == 800 && id == 951) {
+    } else if (id == 800 || id == 951) {
       $('#icon').addClass('wi-day-sunny');
-    } else if (id >= 801 && id < 805) {
+    } else if (id >= 801 || id < 805) {
       $('#icon').addClass('wi-cloudy');
     } else if (id == 900) {
       $('#icon').addClass('wi-tornado');
     } else if (id == 906) {
       $('#icon').addClass('wi-hail');
-    } else if (id >= 952 && id <= 956 && id == 905) {
+    } else if (id >= 952 || id <= 956 && id == 905) {
       $('#icon').addClass('wi-windy');
-    } else if (id >= 957 && id <= 959) {
+    } else if (id >= 957 || id <= 959) {
       $('#icon').addClass('wi-strong-wind');
-    } else if (id == 960 && id == 961 && id == 901) {
+    } else if (id == 960 || id == 961 || id == 901) {
       $('#icon').addClass('wi-storm-showers');
-    } else if (id == 902 && id == 962) {
+    } else if (id == 902 || id == 962) {
       $('#icon').addClass('wi-hurricane');
     }
   }
