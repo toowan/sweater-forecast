@@ -1,12 +1,9 @@
-
-
-
 $(document).ready(function() {  
 
   // global variables
   var appID = '1af00c9ec196ff14716375cebe917a01';
-  var lat = 37.77; 
-  var lon = -122.4; 
+  var lat; 
+  var lon; 
 
   // autocomplete places
   searchedCity = new google.maps.places.Autocomplete(
@@ -16,19 +13,18 @@ $(document).ready(function() {
 
 
   // Get user's local location (latitude and longtitude) and weather
-  // if (navigator.geolocation) {
-  //   navigator.geolocation.getCurrentPosition(function(position) {
-  //        lat = position.coords.latitude;
-  //        lon = position.coords.longitude; 
-
-  //   });
-  // }
-   // Use ajax to get data from openweathermap's API
-
-  var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&' + 'lon=' + lon + '&appid=' + appID;
-   $.ajax(url, {
-    success: openWeatherCallback
+  $.ajax('http://ip-api.com/json', {
+    success: function(data) {
+      lat = data.lat;
+      lon = data.lon;
+      // Use ajax to get data from openweathermap's API
+      var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&' + 'lon=' + lon + '&appid=' + appID;
+      $.ajax(url, {
+        success: openWeatherCallback
+      })
+    }
   })
+
 
   // Update weather info for searched location when search button is clicked. 
   $('.btn-search').click(function() {
@@ -43,6 +39,7 @@ $(document).ready(function() {
 
   // Callback function to update weather info
   function openWeatherCallback(weatherdata) {
+    console.log(weatherdata);
     var condition = weatherdata.weather[0].description;
     var id = weatherdata.weather[0].id;
     // Convert Kelvin to F
