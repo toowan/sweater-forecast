@@ -1,63 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sweater Forecast</title>
+    <title>sweater forecast</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="js/javascript.js"></script>
-    <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <!-- Erik Flowers' Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css"></script>
+
 </head>
 
 <body>
     <header>
-        <h1>sweater <i class="wi wi-stars"></i> forecast</h1>
+        <h1>sweater forecast</h1>
     </header>
 
     <div class="main-content"> 
         <div class="container">
-            <div id="weather-icon">
-                <img src="" id="weatherImg" class="center-block">
-                <h3 class="text-center data-item" id="weather-text"></h3>
+            <div id="weather-condition">
+                <i id="icon" class="wi"></i>
+                <h3 id="condition"></h3>
+                 <div class="weather-city">
+                    <h2 id="location"> Loading...</h2>
+                </div>
             </div>
+        
             <div id="temperature">
-                <p id="temp"></p> 
+                <div class="temp f-deg">0&degF</div>
+                <div class="temp c-deg hidden"></div> 
             </div>
             <div class="toggle-switch"> 
-                <span id="celsius"> F </span>
+                <span id="fahrenheit"> F </span>
                 <label class="switch">
-                  <input type="checkbox" id="tempMode" value="2">
+                  <input type="checkbox" id="tempMode">
                   <div class="slider round"></div>
                 </label>
-                <span id="fahrenheit"> C </span>
+                <span id="celsius"> C </span>
             </div>
-            <div class="weather-city">
-                <p id="city-text"></p>
-            </div>
+        
+            
             <div id="location-search">
-                <form id="my-form" action="">
-                    <input type="search" placeholder="Location or keyword" class="find-forecast" id="find-forecast">
-                    <button class="btn-search" id="submit">Search</button>
-                </form>
+                <input id="autocomplete" placeholder="Enter your address" type="text"></input>
+                <button class="btn-search" id="submit">Search</button>
             </div>
-        </div>
-
-        <div class ="week-forecast">
-            <h2>5-Day Forecast</h2>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-
         </div>
 
     </div>
 
     <footer class="site-footer">
-        <p>by <a href="https://github.com/toowan/" target="_blank">toowan</a></p>
+        <p>Powered by <a href="http://openweathermap.org" target="_blank">OpenWeatherMap</a> and <a href="https://erikflowers.github.io/weather-icons/" target="_blank">Erik Flowers' Icons</a></p>
     </footer>
 
 </body>
+
+
 </html>
 
 

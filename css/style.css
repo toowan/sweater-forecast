@@ -1,30 +1,34 @@
 @import 
-url(https://fonts.googleapis.com/css?family=Josefin+Slab|Megrim);
+url(https://fonts.googleapis.com/css?family=Megrim|Oswald|Roboto:100);
+
 
 * {
   margin: 0;
 }
 
 html, body {
-  background-color: #22223B;
-  font-family: 'Josefin Slab', serif;
-  font-size: 16px;
+  background-color: #F2E9E4;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 100;
+  font-size: 14px;
   height: 100%;
 }
 
 p {
-  font-family: 'Josefin Slab',serif;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 100;
   text-align: center;
   color: #4A4E69;
 }
 
 
 h1 {
-  font-family: 'Megrim', cursive;
-  font-size: 5em;
+  font-family: 'Oswald', sans-serif;
+  font-size: 7em;
   color: #F2E9E4;
   text-align: center;
   margin-top: 50px;
+  visibility: hidden;
 }
 
 .wi-stars {
@@ -34,37 +38,80 @@ h1 {
 
 
 h2 {
-  font-family: 'Josefin Slab',serif;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 100;
   text-align: center;
   color: #C9ADA7;
-  font-weight: bold;
-  font-size: 2em;
+  font-size: 3em;
 }
 
 h3 {
-  font-family: 'Josefin Slab',serif;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 100;
   text-align: center;
   color: #C9ADA7;
-  font-weight: bold;
-  font-size: 1.5em;
+  font-size: em;
+}
+
+.container {
+  background-color: #F2E9E4;
+  width: 50%;
+  margin: auto;
+  padding-top: 20px;
+  min-height: 100%;
+  border-radius: 20px; 
+}
+
+.container:after {
+  content: "";
+  display: block;
+}
+
+.main-content {
+  min-height: 100%;
+  margin-bottom: 50px;
 }
 
 
-
-.weather-city p {
-  font-size: 3em;
-  color: #C9ADA7;
+#weather-condition {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
 }
 
+#condition {
+  font-family: 'Roboto',sans-serif;
+  font-weight: 100;
+  font-size: 2em;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+#icon {
+  color: #4A4E69;
+  font-size: 10em;
+  font-weight: 100;
+  position: relative;
+  margin-top: 40px;
+  opacity: .7;
+}
+
+
+.weather-city {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#location {
+  text-align: center;
+}
 
 #temperature {
   font-size: 8em;
   text-align: center;
   margin-bottom: 100px;
-  margin-top: 100px;
-}
-
-#temperature p {
+  font-family: 'Oswald',sans-serif; 
   color: #C9ADA7;
 }
 
@@ -77,13 +124,13 @@ h3 {
   text-align: center;
   margin-top: -100px;
   margin-bottom: 100px;
-  outline: none;
 }
 
 #celsius, #fahrenheit {
   display: inline;
-  font-size: 1.5em;
-  color: #C9ADA7;
+  font-family: 'Oswald',sans-serif;
+  font-size: 2em;
+  font-weight: 300;  color: #C9ADA7;
 }
 
 
@@ -148,25 +195,29 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-#my-form {
+#location-search {
   margin: 0 auto;
   text-align: center;
-  font-family: 'Josefin Slab',serif;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 100;
 }
 
-.find-forecast {
-  width: 250px;
-  background-color: #4A4E69;
-  border: none;
+#autocomplete {
+  width:300px;
+  background-color: white;
+  border: 1px solid #C9ADA7;
   height: 30px;
   padding-left: 5px;
   outline: none;
   color: #F2E9E4;
+  font-weight: 300;
 }
+
 
 .btn-search {
   background-color: #4A4E69;
   color: #C9ADA7;
+  font-weight: 300;
   border: none;
   width: 75px;
   height: 30px;
@@ -174,44 +225,82 @@ input:checked + .slider:before {
 }
 
 
-.container {
-
-  width: 50%;
-  margin: auto;
-  margin-top: 40px;
-  margin-bottom: -30px;
-  padding-top: 20px;
-  min-height: 100%;
-}
-
-.container:after {
-  content: "";
-  display: block;
-}
-
-.main-content {
-  min-height: 100%;
-  margin-bottom: 50px;
-}
-
-.week-forecast {
-  background-color: #F2E9E4;
-  margin: auto;
-  margin-top: 100px;
-  padding: 50px;
-  padding-top: 20px;
-  width: 50%;
-  border-radius: 20px; 
-}
-
 .site-footer, .container:after {
   height: 30px;
 }
 
 footer {
-  padding-top: 10px;
+  padding-top: 0px;
 }
 
 a {
-  color: #F2E9E4;
+  color: #C9ADA7;
 }
+
+a:hover {
+  color: #4A4E69;
+  text-decoration: none;
+}
+
+@media (max-width: 1330px) { 
+
+  body, footer, html {
+    margin-top: -10px;
+    background-color: #F2E9E4;
+  }
+
+  h1 {
+    font-size: 4.5em;
+  }
+
+  h2 {
+    font-size: 2.5em;
+  }
+
+  #location-search {
+    width: 300px;
+  }
+
+  #autocomplete {
+    width: 200px;
+  }
+
+  .btn-search {
+    width: 50px;
+    font-size: 1em;
+  }
+}
+
+
+@media (max-width: 600px) { 
+
+  body, footer, html {
+    margin-top: -10px;
+    background-color: #F2E9E4;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 2.5em;
+  }
+
+  #temperature {
+    font-size: 3em;
+    margin-top: 10px;
+  }
+
+  #location-search {
+    visibility: hidden;
+  }
+
+  .container {
+    width: 100%;
+    border-radius: 0;
+    margin-top: -40px;
+  }
+}
+
+
