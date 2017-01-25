@@ -40,7 +40,9 @@ $(document).ready(function() {
   // Callback function to update weather info
   function openWeatherCallback(weatherdata) {
     console.log(weatherdata);
+    // Fetch weather condition for description
     var condition = weatherdata.weather[0].description;
+    // Fetch weather id for icon
     var id = weatherdata.weather[0].id;
     // Convert Kelvin to F
     var fahrenheit = kelvinToF(weatherdata.main.temp);
@@ -76,7 +78,7 @@ $(document).ready(function() {
     }
   });
 
-  // Get weather icon based on id
+  // Add icon from Erik Flowers based on weather conditions ID
   function weatherIcon(id) {
     if (id >= 200 && id <= 232) {
       $('#icon').addClass('wi-thunderstorm');
@@ -86,12 +88,28 @@ $(document).ready(function() {
       $('#icon').addClass('wi-rain');
     } else if (id >= 600 && id <= 622) {
       $('#icon').addClass('wi-snow');
+    } else if (id == 701 && id == 721) {
+      $('#icon').addClass('wi-day-haze');
+    } else if (id == 711) {
+      $('#icon').addClass('wi-smoke');
+    } else if (id == 731) {
+      $('#icon').addClass('wi-dust');
     } else if (id == 741) {
       $('#icon').addClass('wi-fog');
     } else if (id == 800) {
       $('#icon').addClass('wi-day-sunny');
-    } else if (id > 800 && id < 805) {
+    } else if (id >= 801 && id < 805) {
       $('#icon').addClass('wi-cloudy');
+    } else if (id == 906) {
+      $('#icon').addClass('wi-hail');
+    } else if (id >= 952 && id <= 956) {
+      $('#icon').addClass('wi-windy');
+    } else if (id >= 957 && id <= 959) {
+      $('#icon').addClass('wi-strong-wind');
+    } else if (id == 960 && id == 961) {
+      $('#icon').addClass('wi-storm-showers');
+    } else if (id == 962) {
+      $('#icon').addClass('wi-hurricane');
     }
   }
 
