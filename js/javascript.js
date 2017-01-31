@@ -36,10 +36,16 @@ $(document).ready(function() {
 
   });
 
+  // When enter key is pressed, simulate the click of search button
+  $('#autocomplete').keypress(function(e) {
+    if ( e.which == 13 ) {
+     e.preventDefault();
+     $('.btn-search').trigger("click");
+    };
+  }); 
 
   // Callback function to update weather info
   function openWeatherCallback(weatherdata) {
-    console.log(weatherdata);
     // Fetch weather condition for description
     var condition = weatherdata.weather[0].description;
     // Fetch weather id for icon
